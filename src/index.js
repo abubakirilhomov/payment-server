@@ -5,6 +5,9 @@ const app = express();
 
 connectDB();
 
+app.use(cors({
+    origin: '*' // Замените на нужный вам домен
+  }));
 // Middleware and routes
 app.use(express.json());
 

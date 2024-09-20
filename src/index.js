@@ -1,13 +1,16 @@
 const express = require('express');
+const cors = require('cors');  // Добавляем require для CORS
 const connectDB = require('./config/db'); // Adjust the path according to your file structure
 
 const app = express();
 
 connectDB();
 
+// Enable CORS with specific origin
 app.use(cors({
-    origin: '*' // Замените на нужный вам домен
-  }));
+  origin: '*' // Можно заменить на нужный домен, например: 'http://example.com'
+}));
+
 // Middleware and routes
 app.use(express.json());
 

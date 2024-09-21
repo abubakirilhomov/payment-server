@@ -4,16 +4,16 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();  // Загружаем переменные окружения
 
 exports.registerUser = async (req, res) => {
-  const { email, password } = req.body;
+  const { login, password } = req.body;
 
   try {
-    let user = await User.findOne({ email });
+    let user = await User.findOne({ login });
     if (user) {
       return res.status(400).json({ msg: 'User already exists' });
     }
 
     user = new User({
-      email,
+      login,
       password,
     });
 
@@ -42,10 +42,10 @@ exports.registerUser = async (req, res) => {
 
 // User login
 exports.loginUser = async (req, res) => {
-    const { email, password } = req.body;
+    const { login, password } = req.body;
   
     try {
-      const user = await User.findOne({ email });
+      const user = await User.findOne({ login });
       if (!user) {
         return res.status(400).json({ msg: 'Invalid Credentials' });
       }

@@ -6,12 +6,10 @@ const app = express();
 
 connectDB();
 
-// Enable CORS with specific origin
 app.use(cors({
-  origin: '*' // Можно заменить на нужный домен, например: 'http://example.com'
+  origin: '*'
 }));
 
-// Middleware and routes
 app.use(express.json());
 
 app.get('/', (req, res) => {

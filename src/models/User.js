@@ -13,7 +13,6 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-// Encrypt password before saving the user
 UserSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {
     next();

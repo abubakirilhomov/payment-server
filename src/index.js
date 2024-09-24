@@ -1,6 +1,6 @@
 const express = require('express');
-const cors = require('cors');  // Добавляем require для CORS
-const connectDB = require('./config/db'); // Adjust the path according to your file structure
+const cors = require('cors'); 
+const connectDB = require('./config/db');
 
 const app = express();
 
